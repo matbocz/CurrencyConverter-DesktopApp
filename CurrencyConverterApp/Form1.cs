@@ -20,6 +20,8 @@ namespace CurrencyConverterApp
         public Form1()
         {
             InitializeComponent();
+            comboBoxFrom.SelectedIndex = 1;
+            comboBoxTo.SelectedIndex = 0;
         }
 
         private void buttonConvert_Click(object sender, EventArgs e)
