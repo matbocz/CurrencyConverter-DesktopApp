@@ -55,6 +55,12 @@
             // 
             this.comboBoxFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFrom.FormattingEnabled = true;
+            this.comboBoxFrom.Items.AddRange(new object[] {
+            "PLN",
+            "EUR",
+            "USD",
+            "CHF",
+            "GBP"});
             this.comboBoxFrom.Location = new System.Drawing.Point(12, 160);
             this.comboBoxFrom.Name = "comboBoxFrom";
             this.comboBoxFrom.Size = new System.Drawing.Size(121, 24);
@@ -64,6 +70,12 @@
             // 
             this.comboBoxTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTo.FormattingEnabled = true;
+            this.comboBoxTo.Items.AddRange(new object[] {
+            "PLN",
+            "EUR",
+            "USD",
+            "CHF",
+            "GBP"});
             this.comboBoxTo.Location = new System.Drawing.Point(268, 160);
             this.comboBoxTo.Name = "comboBoxTo";
             this.comboBoxTo.Size = new System.Drawing.Size(121, 24);
