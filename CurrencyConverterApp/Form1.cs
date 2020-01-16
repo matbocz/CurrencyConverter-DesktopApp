@@ -14,6 +14,8 @@ namespace CurrencyConverterApp
 {
     public partial class Form1 : Form
     {
+        string currency;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,8 +28,36 @@ namespace CurrencyConverterApp
                 var json = wc.DownloadString("https://api.exchangeratesapi.io/latest");
                 dynamic data = JObject.Parse(json);
 
-                labelResult.Text = data.rates.CAD;
+                if (currency == "PLN")
+                {
+                    labelResult.Text = data.rates.PLN;
+                }
+
+                if (currency == "EUR")
+                {
+                    labelResult.Text = data.rates.EUR;
+                }
+
+                if (currency == "USD")
+                {
+                    labelResult.Text = data.rates.USD;
+                }
+
+                if (currency == "CHF")
+                {
+                    labelResult.Text = data.rates.CHF;
+                }
+
+                if (currency == "GBP")
+                {
+                    labelResult.Text = data.rates.GBP;
+                }
             }
+        }
+
+        private void comboBoxTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currency = comboBoxTo.Text;
         }
     }
 }
