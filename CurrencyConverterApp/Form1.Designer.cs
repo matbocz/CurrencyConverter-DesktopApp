@@ -65,6 +65,7 @@
             this.comboBoxFrom.Name = "comboBoxFrom";
             this.comboBoxFrom.Size = new System.Drawing.Size(121, 24);
             this.comboBoxFrom.TabIndex = 1;
+            this.comboBoxFrom.SelectedIndexChanged += new System.EventHandler(this.comboBoxFrom_SelectedIndexChanged);
             // 
             // comboBoxTo
             // 

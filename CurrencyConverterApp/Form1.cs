@@ -15,6 +15,7 @@ namespace CurrencyConverterApp
     public partial class Form1 : Form
     {
         string currency;
+        string apiUrl;
 
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace CurrencyConverterApp
         {
             using (WebClient wc = new WebClient())
             {
-                var json = wc.DownloadString("https://api.exchangeratesapi.io/latest");
+                var json = wc.DownloadString(apiUrl);
                 dynamic data = JObject.Parse(json);
 
                 if (currency == "PLN")
@@ -58,6 +59,11 @@ namespace CurrencyConverterApp
         private void comboBoxTo_SelectedIndexChanged(object sender, EventArgs e)
         {
             currency = comboBoxTo.Text;
+        }
+
+        private void comboBoxFrom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            apiUrl = "https://api.exchangeratesapi.io/latest?base=" + comboBoxFrom.Text;
         }
     }
 }
