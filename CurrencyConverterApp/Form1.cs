@@ -61,11 +61,13 @@ namespace CurrencyConverterApp
         private void comboBoxTo_SelectedIndexChanged(object sender, EventArgs e)
         {
             currency = comboBoxTo.Text;
+            pictureBoxTo.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject(comboBoxTo.Text);
         }
 
         private void comboBoxFrom_SelectedIndexChanged(object sender, EventArgs e)
         {
             apiUrl = "https://api.exchangeratesapi.io/latest?base=" + comboBoxFrom.Text;
+            pictureBoxFrom.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject(comboBoxFrom.Text);
         }
     }
 }

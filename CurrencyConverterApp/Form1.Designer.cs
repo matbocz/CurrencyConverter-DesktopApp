@@ -63,7 +63,7 @@
             "GBP"});
             this.comboBoxFrom.Location = new System.Drawing.Point(12, 160);
             this.comboBoxFrom.Name = "comboBoxFrom";
-            this.comboBoxFrom.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxFrom.Size = new System.Drawing.Size(165, 24);
             this.comboBoxFrom.TabIndex = 1;
             this.comboBoxFrom.SelectedIndexChanged += new System.EventHandler(this.comboBoxFrom_SelectedIndexChanged);
             // 
@@ -77,9 +77,9 @@
             "USD",
             "CHF",
             "GBP"});
-            this.comboBoxTo.Location = new System.Drawing.Point(268, 160);
+            this.comboBoxTo.Location = new System.Drawing.Point(224, 160);
             this.comboBoxTo.Name = "comboBoxTo";
-            this.comboBoxTo.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxTo.Size = new System.Drawing.Size(165, 24);
             this.comboBoxTo.TabIndex = 2;
             this.comboBoxTo.SelectedIndexChanged += new System.EventHandler(this.comboBoxTo_SelectedIndexChanged);
             // 
@@ -95,7 +95,7 @@
             // labelTo
             // 
             this.labelTo.AutoSize = true;
-            this.labelTo.Location = new System.Drawing.Point(265, 140);
+            this.labelTo.Location = new System.Drawing.Point(221, 140);
             this.labelTo.Name = "labelTo";
             this.labelTo.Size = new System.Drawing.Size(29, 17);
             this.labelTo.TabIndex = 4;
@@ -105,15 +105,17 @@
             // 
             this.pictureBoxFrom.Location = new System.Drawing.Point(12, 190);
             this.pictureBoxFrom.Name = "pictureBoxFrom";
-            this.pictureBoxFrom.Size = new System.Drawing.Size(121, 121);
+            this.pictureBoxFrom.Size = new System.Drawing.Size(165, 121);
+            this.pictureBoxFrom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFrom.TabIndex = 5;
             this.pictureBoxFrom.TabStop = false;
             // 
             // pictureBoxTo
             // 
-            this.pictureBoxTo.Location = new System.Drawing.Point(268, 190);
+            this.pictureBoxTo.Location = new System.Drawing.Point(224, 190);
             this.pictureBoxTo.Name = "pictureBoxTo";
-            this.pictureBoxTo.Size = new System.Drawing.Size(121, 121);
+            this.pictureBoxTo.Size = new System.Drawing.Size(165, 121);
+            this.pictureBoxTo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxTo.TabIndex = 6;
             this.pictureBoxTo.TabStop = false;
             // 
