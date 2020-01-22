@@ -37,8 +37,10 @@
             this.pictureBoxTo = new System.Windows.Forms.PictureBox();
             this.labelResult = new System.Windows.Forms.Label();
             this.buttonConvert = new System.Windows.Forms.Button();
+            this.numericUpDownFrom = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -123,11 +125,11 @@
             // 
             this.labelResult.AutoSize = true;
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelResult.Location = new System.Drawing.Point(300, 314);
+            this.labelResult.Location = new System.Drawing.Point(224, 317);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(48, 19);
+            this.labelResult.Size = new System.Drawing.Size(18, 19);
             this.labelResult.TabIndex = 7;
-            this.labelResult.Text = "label1";
+            this.labelResult.Text = "1";
             // 
             // buttonConvert
             // 
@@ -139,11 +141,19 @@
             this.buttonConvert.UseVisualStyleBackColor = true;
             this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
             // 
+            // numericUpDownFrom
+            // 
+            this.numericUpDownFrom.Location = new System.Drawing.Point(12, 317);
+            this.numericUpDownFrom.Name = "numericUpDownFrom";
+            this.numericUpDownFrom.Size = new System.Drawing.Size(165, 22);
+            this.numericUpDownFrom.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 398);
+            this.Controls.Add(this.numericUpDownFrom);
             this.Controls.Add(this.buttonConvert);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.pictureBoxTo);
@@ -157,6 +167,7 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,6 +184,7 @@
         private System.Windows.Forms.PictureBox pictureBoxTo;
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Button buttonConvert;
+        private System.Windows.Forms.NumericUpDown numericUpDownFrom;
     }
 }
 

@@ -22,6 +22,7 @@ namespace CurrencyConverterApp
             InitializeComponent();
             comboBoxFrom.SelectedIndex = 1;
             comboBoxTo.SelectedIndex = 0;
+            numericUpDownFrom.Value = 1;
         }
 
         private void buttonConvert_Click(object sender, EventArgs e)
@@ -30,31 +31,34 @@ namespace CurrencyConverterApp
             {
                 var json = wc.DownloadString(apiUrl);
                 dynamic data = JObject.Parse(json);
+                decimal d = 0;
 
                 if (currency == "PLN")
                 {
-                    labelResult.Text = data.rates.PLN;
+                    d = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.PLN), 2);
                 }
 
                 if (currency == "EUR")
                 {
-                    labelResult.Text = data.rates.EUR;
+                    d = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.EUR), 2);
                 }
 
                 if (currency == "USD")
                 {
-                    labelResult.Text = data.rates.USD;
+                    d = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.USD), 2);
                 }
 
                 if (currency == "CHF")
                 {
-                    labelResult.Text = data.rates.CHF;
+                    d = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.CHF), 2);
                 }
 
                 if (currency == "GBP")
                 {
-                    labelResult.Text = data.rates.GBP;
+                    d = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.GBP), 2);
                 }
+
+                labelResult.Text = Convert.ToString(d);
             }
         }
 
