@@ -38,6 +38,7 @@
             this.labelResult = new System.Windows.Forms.Label();
             this.buttonConvert = new System.Windows.Forms.Button();
             this.numericUpDownFrom = new System.Windows.Forms.NumericUpDown();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).BeginInit();
@@ -46,10 +47,10 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTitle.Location = new System.Drawing.Point(79, 65);
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTitle.Location = new System.Drawing.Point(55, 61);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(252, 31);
+            this.labelTitle.Size = new System.Drawing.Size(270, 31);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Currency Converter";
             // 
@@ -124,8 +125,11 @@
             // labelResult
             // 
             this.labelResult.AutoSize = true;
+            this.labelResult.BackColor = System.Drawing.SystemColors.Control;
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelResult.Location = new System.Drawing.Point(224, 317);
+            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelResult.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.labelResult.Location = new System.Drawing.Point(224, 320);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(18, 19);
             this.labelResult.TabIndex = 7;
@@ -144,15 +148,37 @@
             // numericUpDownFrom
             // 
             this.numericUpDownFrom.Location = new System.Drawing.Point(12, 317);
+            this.numericUpDownFrom.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownFrom.Name = "numericUpDownFrom";
             this.numericUpDownFrom.Size = new System.Drawing.Size(165, 22);
             this.numericUpDownFrom.TabIndex = 9;
+            this.numericUpDownFrom.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(12, 363);
+            this.dateTimePickerFrom.MinDate = new System.DateTime(1999, 2, 1, 0, 0, 0, 0);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(165, 22);
+            this.dateTimePickerFrom.TabIndex = 10;
+            this.dateTimePickerFrom.Value = new System.DateTime(2020, 1, 22, 16, 52, 34, 0);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 398);
+            this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.numericUpDownFrom);
             this.Controls.Add(this.buttonConvert);
             this.Controls.Add(this.labelResult);
@@ -164,7 +190,7 @@
             this.Controls.Add(this.comboBoxFrom);
             this.Controls.Add(this.labelTitle);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Currency Converter";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).EndInit();
@@ -185,6 +211,7 @@
         private System.Windows.Forms.Label labelResult;
         private System.Windows.Forms.Button buttonConvert;
         private System.Windows.Forms.NumericUpDown numericUpDownFrom;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
     }
 }
 
