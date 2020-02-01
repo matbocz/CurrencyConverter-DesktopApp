@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -14,8 +15,8 @@ namespace CurrencyConverterApp
 {
     public partial class Form1 : Form
     {
-        string currencyNameFrom, currencyNameTo;
-        string apiUrl;
+        string currencyNameFrom, currencyNameTo, date, apiUrl;
+        decimal amount, result;
 
         public Form1()
         {
@@ -30,42 +31,46 @@ namespace CurrencyConverterApp
 
         private void buttonConvert_Click(object sender, EventArgs e)
         {
-            apiUrl = "https://api.exchangeratesapi.io/" + dateTimePickerFrom.Text + "?base=" + currencyNameFrom;
+            date = dateTimePickerFrom.Text;
+            amount = numericUpDownFrom.Value;
+
+            apiUrl = "https://api.exchangeratesapi.io/" + date + "?base=" + currencyNameFrom;
 
             using (WebClient wc = new WebClient())
             {
                 var json = wc.DownloadString(apiUrl);
                 dynamic data = JObject.Parse(json);
-                decimal result = 0;
 
                 if (currencyNameTo == "PLN")
                 {
-                    result = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.PLN), 2);
+                    result = amount * Math.Round(Convert.ToDecimal(data.rates.PLN), 2);
                 }
 
                 if (currencyNameTo == "EUR")
                 {
-                    result = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.EUR), 2);
+                    result = amount * Math.Round(Convert.ToDecimal(data.rates.EUR), 2);
                 }
 
                 if (currencyNameTo == "USD")
                 {
-                    result = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.USD), 2);
+                    result = amount * Math.Round(Convert.ToDecimal(data.rates.USD), 2);
                 }
 
                 if (currencyNameTo == "CHF")
                 {
-                    result = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.CHF), 2);
+                    result = amount * Math.Round(Convert.ToDecimal(data.rates.CHF), 2);
                 }
 
                 if (currencyNameTo == "GBP")
                 {
-                    result = numericUpDownFrom.Value * Math.Round(Convert.ToDecimal(data.rates.GBP), 2);
+                    result = amount * Math.Round(Convert.ToDecimal(data.rates.GBP), 2);
                 }
-
-                labelResult.Visible = true;
-                labelResult.Text = numericUpDownFrom.Value + " " + currencyNameFrom +" = "+ Convert.ToString(result) + " " + currencyNameTo;
             }
+
+            labelResult.Text = numericUpDownFrom.Value + " " + currencyNameFrom + " = " + Convert.ToString(result) + " " + currencyNameTo;
+            labelResult.Visible = true;
+
+            addRecord(date, Convert.ToString(amount), currencyNameFrom, Convert.ToString(result), currencyNameTo, "rates.csv");
         }
 
         private void comboBoxTo_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +83,26 @@ namespace CurrencyConverterApp
         {
             currencyNameFrom = comboBoxFrom.Text;
             pictureBoxFrom.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject(comboBoxFrom.Text);
+        }
+
+        public static void addRecord(string value1, string value2, string value3, string value4, string value5, string filepath)
+        {
+            try
+            {
+                using (StreamWriter file = new StreamWriter(@filepath, true))
+                {
+                    if (new FileInfo(filepath).Length == 0)
+                    {
+                        file.WriteLine("Date" + "," + "Amount" + "," + "From" + "," + "Result" + "," + "To");
+                    }
+
+                    file.WriteLine(value1 + "," + value2 + "," + value3 + "," + value4 + "," + value5);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException("Error: ", e);
+            }
         }
     }
 }
