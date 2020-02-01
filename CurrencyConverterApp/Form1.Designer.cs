@@ -39,6 +39,9 @@
             this.buttonConvert = new System.Windows.Forms.Button();
             this.numericUpDownFrom = new System.Windows.Forms.NumericUpDown();
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.buttonShowRates = new System.Windows.Forms.Button();
+            this.labelRates = new System.Windows.Forms.Label();
+            this.buttonDeleteRates = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).BeginInit();
@@ -48,7 +51,7 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTitle.Location = new System.Drawing.Point(55, 61);
+            this.labelTitle.Location = new System.Drawing.Point(65, 61);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(270, 31);
             this.labelTitle.TabIndex = 0;
@@ -127,19 +130,20 @@
             this.labelResult.AutoSize = true;
             this.labelResult.BackColor = System.Drawing.SystemColors.Control;
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelResult.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelResult.Location = new System.Drawing.Point(224, 320);
+            this.labelResult.Location = new System.Drawing.Point(224, 319);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(18, 19);
+            this.labelResult.Size = new System.Drawing.Size(144, 20);
             this.labelResult.TabIndex = 7;
-            this.labelResult.Text = "1";
+            this.labelResult.Text = "100 PLN = 330 EUR";
+            this.labelResult.Visible = false;
             // 
             // buttonConvert
             // 
-            this.buttonConvert.Location = new System.Drawing.Point(268, 363);
+            this.buttonConvert.Location = new System.Drawing.Point(224, 355);
             this.buttonConvert.Name = "buttonConvert";
-            this.buttonConvert.Size = new System.Drawing.Size(121, 23);
+            this.buttonConvert.Size = new System.Drawing.Size(165, 23);
             this.buttonConvert.TabIndex = 8;
             this.buttonConvert.Text = "Convert";
             this.buttonConvert.UseVisualStyleBackColor = true;
@@ -166,18 +170,50 @@
             // 
             this.dateTimePickerFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(12, 363);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(12, 356);
             this.dateTimePickerFrom.MinDate = new System.DateTime(1999, 2, 1, 0, 0, 0, 0);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(165, 22);
             this.dateTimePickerFrom.TabIndex = 10;
             this.dateTimePickerFrom.Value = new System.DateTime(2020, 1, 22, 16, 52, 34, 0);
             // 
+            // buttonShowRates
+            // 
+            this.buttonShowRates.Location = new System.Drawing.Point(224, 401);
+            this.buttonShowRates.Name = "buttonShowRates";
+            this.buttonShowRates.Size = new System.Drawing.Size(67, 23);
+            this.buttonShowRates.TabIndex = 11;
+            this.buttonShowRates.Text = "Show";
+            this.buttonShowRates.UseVisualStyleBackColor = true;
+            this.buttonShowRates.Click += new System.EventHandler(this.buttonShowRates_Click);
+            // 
+            // labelRates
+            // 
+            this.labelRates.AutoSize = true;
+            this.labelRates.Location = new System.Drawing.Point(221, 381);
+            this.labelRates.Name = "labelRates";
+            this.labelRates.Size = new System.Drawing.Size(153, 17);
+            this.labelRates.TabIndex = 12;
+            this.labelRates.Text = "Saved exchange rates:";
+            // 
+            // buttonDeleteRates
+            // 
+            this.buttonDeleteRates.Location = new System.Drawing.Point(297, 401);
+            this.buttonDeleteRates.Name = "buttonDeleteRates";
+            this.buttonDeleteRates.Size = new System.Drawing.Size(92, 23);
+            this.buttonDeleteRates.TabIndex = 13;
+            this.buttonDeleteRates.Text = "Delete";
+            this.buttonDeleteRates.UseVisualStyleBackColor = true;
+            this.buttonDeleteRates.Click += new System.EventHandler(this.buttonDeleteRates_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 398);
+            this.ClientSize = new System.Drawing.Size(401, 434);
+            this.Controls.Add(this.buttonDeleteRates);
+            this.Controls.Add(this.labelRates);
+            this.Controls.Add(this.buttonShowRates);
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.numericUpDownFrom);
             this.Controls.Add(this.buttonConvert);
@@ -212,6 +248,9 @@
         private System.Windows.Forms.Button buttonConvert;
         private System.Windows.Forms.NumericUpDown numericUpDownFrom;
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
+        private System.Windows.Forms.Button buttonShowRates;
+        private System.Windows.Forms.Label labelRates;
+        private System.Windows.Forms.Button buttonDeleteRates;
     }
 }
 

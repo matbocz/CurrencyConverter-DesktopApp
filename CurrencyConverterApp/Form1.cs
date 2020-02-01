@@ -16,7 +16,8 @@ namespace CurrencyConverterApp
     public partial class Form1 : Form
     {
         string currencyNameFrom, currencyNameTo, date, apiUrl;
-        decimal amount, result;
+        string filePath = "rates.csv";
+        decimal amount, rate;
 
         public Form1()
         {
@@ -27,6 +28,25 @@ namespace CurrencyConverterApp
 
             dateTimePickerFrom.Value = DateTime.Today;
             dateTimePickerFrom.MaxDate = DateTime.Today;
+        }
+
+        private void buttonShowRates_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("You do not have saved exchange rates!");
+            }
+            else
+            {
+                FormRates f = new FormRates(filePath);
+                f.Show();
+            }
+        }
+
+        private void buttonDeleteRates_Click(object sender, EventArgs e)
+        {
+            File.Delete(filePath);
+            MessageBox.Show("You have removed saved exchange rates.");
         }
 
         private void buttonConvert_Click(object sender, EventArgs e)
@@ -43,34 +63,34 @@ namespace CurrencyConverterApp
 
                 if (currencyNameTo == "PLN")
                 {
-                    result = amount * Math.Round(Convert.ToDecimal(data.rates.PLN), 2);
+                    rate = amount * Math.Round(Convert.ToDecimal(data.rates.PLN), 2);
                 }
 
                 if (currencyNameTo == "EUR")
                 {
-                    result = amount * Math.Round(Convert.ToDecimal(data.rates.EUR), 2);
+                    rate = amount * Math.Round(Convert.ToDecimal(data.rates.EUR), 2);
                 }
 
                 if (currencyNameTo == "USD")
                 {
-                    result = amount * Math.Round(Convert.ToDecimal(data.rates.USD), 2);
+                    rate = amount * Math.Round(Convert.ToDecimal(data.rates.USD), 2);
                 }
 
                 if (currencyNameTo == "CHF")
                 {
-                    result = amount * Math.Round(Convert.ToDecimal(data.rates.CHF), 2);
+                    rate = amount * Math.Round(Convert.ToDecimal(data.rates.CHF), 2);
                 }
 
                 if (currencyNameTo == "GBP")
                 {
-                    result = amount * Math.Round(Convert.ToDecimal(data.rates.GBP), 2);
+                    rate = amount * Math.Round(Convert.ToDecimal(data.rates.GBP), 2);
                 }
             }
 
-            labelResult.Text = numericUpDownFrom.Value + " " + currencyNameFrom + " = " + Convert.ToString(result) + " " + currencyNameTo;
+            labelResult.Text = numericUpDownFrom.Value + " " + currencyNameFrom + " = " + Convert.ToString(rate) + " " + currencyNameTo;
             labelResult.Visible = true;
 
-            addRecord(date, Convert.ToString(amount), currencyNameFrom, Convert.ToString(result), currencyNameTo, "rates.csv");
+            addRecord(date, Convert.ToString(amount), currencyNameFrom, Convert.ToString(rate), currencyNameTo, filePath);
         }
 
         private void comboBoxTo_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +105,7 @@ namespace CurrencyConverterApp
             pictureBoxFrom.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject(comboBoxFrom.Text);
         }
 
-        public static void addRecord(string value1, string value2, string value3, string value4, string value5, string filepath)
+        public static void addRecord(string val1, string val2, string val3, string val4, string val5, string filepath)
         {
             try
             {
@@ -93,10 +113,10 @@ namespace CurrencyConverterApp
                 {
                     if (new FileInfo(filepath).Length == 0)
                     {
-                        file.WriteLine("Date" + "," + "Amount" + "," + "From" + "," + "Result" + "," + "To");
+                        file.WriteLine("Date" + "," + "Amount" + "," + "From" + "," + "Rate" + "," + "To");
                     }
 
-                    file.WriteLine(value1 + "," + value2 + "," + value3 + "," + value4 + "," + value5);
+                    file.WriteLine(val1 + "," + val2 + "," + val3 + "," + val4 + "," + val5);
                 }
             }
             catch (Exception e)
