@@ -130,20 +130,20 @@
             this.labelResult.AutoSize = true;
             this.labelResult.BackColor = System.Drawing.SystemColors.Control;
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelResult.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelResult.Location = new System.Drawing.Point(224, 319);
+            this.labelResult.Location = new System.Drawing.Point(85, 389);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(144, 20);
+            this.labelResult.Size = new System.Drawing.Size(228, 31);
             this.labelResult.TabIndex = 7;
             this.labelResult.Text = "100 PLN = 330 EUR";
             this.labelResult.Visible = false;
             // 
             // buttonConvert
             // 
-            this.buttonConvert.Location = new System.Drawing.Point(224, 355);
+            this.buttonConvert.Location = new System.Drawing.Point(224, 317);
             this.buttonConvert.Name = "buttonConvert";
-            this.buttonConvert.Size = new System.Drawing.Size(165, 23);
+            this.buttonConvert.Size = new System.Drawing.Size(165, 50);
             this.buttonConvert.TabIndex = 8;
             this.buttonConvert.Text = "Convert";
             this.buttonConvert.UseVisualStyleBackColor = true;
@@ -170,7 +170,7 @@
             // 
             this.dateTimePickerFrom.CustomFormat = "yyyy-MM-dd";
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(12, 356);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(12, 345);
             this.dateTimePickerFrom.MinDate = new System.DateTime(1999, 2, 1, 0, 0, 0, 0);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(165, 22);
@@ -179,9 +179,9 @@
             // 
             // buttonShowRates
             // 
-            this.buttonShowRates.Location = new System.Drawing.Point(224, 401);
+            this.buttonShowRates.Location = new System.Drawing.Point(171, 436);
             this.buttonShowRates.Name = "buttonShowRates";
-            this.buttonShowRates.Size = new System.Drawing.Size(67, 23);
+            this.buttonShowRates.Size = new System.Drawing.Size(106, 23);
             this.buttonShowRates.TabIndex = 11;
             this.buttonShowRates.Text = "Show";
             this.buttonShowRates.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             // labelRates
             // 
             this.labelRates.AutoSize = true;
-            this.labelRates.Location = new System.Drawing.Point(221, 381);
+            this.labelRates.Location = new System.Drawing.Point(12, 439);
             this.labelRates.Name = "labelRates";
             this.labelRates.Size = new System.Drawing.Size(153, 17);
             this.labelRates.TabIndex = 12;
@@ -198,9 +198,9 @@
             // 
             // buttonDeleteRates
             // 
-            this.buttonDeleteRates.Location = new System.Drawing.Point(297, 401);
+            this.buttonDeleteRates.Location = new System.Drawing.Point(283, 436);
             this.buttonDeleteRates.Name = "buttonDeleteRates";
-            this.buttonDeleteRates.Size = new System.Drawing.Size(92, 23);
+            this.buttonDeleteRates.Size = new System.Drawing.Size(106, 23);
             this.buttonDeleteRates.TabIndex = 13;
             this.buttonDeleteRates.Text = "Delete";
             this.buttonDeleteRates.UseVisualStyleBackColor = true;
@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 434);
+            this.ClientSize = new System.Drawing.Size(401, 465);
             this.Controls.Add(this.buttonDeleteRates);
             this.Controls.Add(this.labelRates);
             this.Controls.Add(this.buttonShowRates);
