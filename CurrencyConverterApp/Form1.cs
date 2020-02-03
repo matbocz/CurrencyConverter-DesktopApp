@@ -119,10 +119,10 @@ namespace CurrencyConverterApp
                 {
                     if (new FileInfo(filepath).Length == 0)
                     {
-                        file.WriteLine("Date" + "," + "Amount" + "," + "From" + "," + "Rate" + "," + "To");
+                        file.WriteLine("Date" + ";" + "Amount" + ";" + "From" + ";" + "Rate" + ";" + "To");
                     }
 
-                    file.WriteLine(val1 + "," + val2 + "," + val3 + "," + val4 + "," + val5);
+                    file.WriteLine(val1 + ";" + val2 + ";" + val3 + ";" + val4 + ";" + val5);
                 }
             }
             catch (Exception e)

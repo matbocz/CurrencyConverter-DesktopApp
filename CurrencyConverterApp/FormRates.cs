@@ -31,7 +31,7 @@ namespace CurrencyConverterApp
             int x = 0;
             foreach (string textLine in rawText)
             {
-                dataCol = textLine.Split(',');
+                dataCol = textLine.Split(';');
 
                 if (x == 0)
                 {
