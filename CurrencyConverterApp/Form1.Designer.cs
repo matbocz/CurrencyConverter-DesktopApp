@@ -33,8 +33,6 @@
             this.comboBoxTo = new System.Windows.Forms.ComboBox();
             this.labelFrom = new System.Windows.Forms.Label();
             this.labelTo = new System.Windows.Forms.Label();
-            this.pictureBoxFrom = new System.Windows.Forms.PictureBox();
-            this.pictureBoxTo = new System.Windows.Forms.PictureBox();
             this.labelResult = new System.Windows.Forms.Label();
             this.buttonConvert = new System.Windows.Forms.Button();
             this.numericUpDownFrom = new System.Windows.Forms.NumericUpDown();
@@ -42,16 +40,19 @@
             this.buttonShowRates = new System.Windows.Forms.Button();
             this.labelRates = new System.Windows.Forms.Label();
             this.buttonDeleteRates = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).BeginInit();
+            this.pictureBoxTo = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFrom = new System.Windows.Forms.PictureBox();
+            this.buttonTable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTitle.Location = new System.Drawing.Point(65, 61);
+            this.labelTitle.Location = new System.Drawing.Point(66, 72);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(270, 31);
             this.labelTitle.TabIndex = 0;
@@ -107,24 +108,6 @@
             this.labelTo.TabIndex = 4;
             this.labelTo.Text = "To:";
             // 
-            // pictureBoxFrom
-            // 
-            this.pictureBoxFrom.Location = new System.Drawing.Point(12, 190);
-            this.pictureBoxFrom.Name = "pictureBoxFrom";
-            this.pictureBoxFrom.Size = new System.Drawing.Size(165, 121);
-            this.pictureBoxFrom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFrom.TabIndex = 5;
-            this.pictureBoxFrom.TabStop = false;
-            // 
-            // pictureBoxTo
-            // 
-            this.pictureBoxTo.Location = new System.Drawing.Point(224, 190);
-            this.pictureBoxTo.Name = "pictureBoxTo";
-            this.pictureBoxTo.Size = new System.Drawing.Size(165, 121);
-            this.pictureBoxTo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxTo.TabIndex = 6;
-            this.pictureBoxTo.TabStop = false;
-            // 
             // labelResult
             // 
             this.labelResult.AutoSize = true;
@@ -132,11 +115,11 @@
             this.labelResult.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelResult.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelResult.Location = new System.Drawing.Point(85, 389);
+            this.labelResult.Location = new System.Drawing.Point(116, 387);
             this.labelResult.Name = "labelResult";
-            this.labelResult.Size = new System.Drawing.Size(228, 31);
+            this.labelResult.Size = new System.Drawing.Size(210, 31);
             this.labelResult.TabIndex = 7;
-            this.labelResult.Text = "100 PLN = 330 EUR";
+            this.labelResult.Text = "1 USD = 0.98 CHF";
             this.labelResult.Visible = false;
             // 
             // buttonConvert
@@ -206,11 +189,40 @@
             this.buttonDeleteRates.UseVisualStyleBackColor = true;
             this.buttonDeleteRates.Click += new System.EventHandler(this.buttonDeleteRates_Click);
             // 
+            // pictureBoxTo
+            // 
+            this.pictureBoxTo.Location = new System.Drawing.Point(224, 190);
+            this.pictureBoxTo.Name = "pictureBoxTo";
+            this.pictureBoxTo.Size = new System.Drawing.Size(165, 121);
+            this.pictureBoxTo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxTo.TabIndex = 6;
+            this.pictureBoxTo.TabStop = false;
+            // 
+            // pictureBoxFrom
+            // 
+            this.pictureBoxFrom.Location = new System.Drawing.Point(12, 190);
+            this.pictureBoxFrom.Name = "pictureBoxFrom";
+            this.pictureBoxFrom.Size = new System.Drawing.Size(165, 121);
+            this.pictureBoxFrom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFrom.TabIndex = 5;
+            this.pictureBoxFrom.TabStop = false;
+            // 
+            // buttonTable
+            // 
+            this.buttonTable.Location = new System.Drawing.Point(15, 12);
+            this.buttonTable.Name = "buttonTable";
+            this.buttonTable.Size = new System.Drawing.Size(162, 23);
+            this.buttonTable.TabIndex = 14;
+            this.buttonTable.Text = "Exchange rates table";
+            this.buttonTable.UseVisualStyleBackColor = true;
+            this.buttonTable.Click += new System.EventHandler(this.buttonTable_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 465);
+            this.Controls.Add(this.buttonTable);
             this.Controls.Add(this.buttonDeleteRates);
             this.Controls.Add(this.labelRates);
             this.Controls.Add(this.buttonShowRates);
@@ -227,9 +239,9 @@
             this.Controls.Add(this.labelTitle);
             this.Name = "Form1";
             this.Text = "Currency Converter";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFrom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,6 +263,7 @@
         private System.Windows.Forms.Button buttonShowRates;
         private System.Windows.Forms.Label labelRates;
         private System.Windows.Forms.Button buttonDeleteRates;
+        private System.Windows.Forms.Button buttonTable;
     }
 }
 

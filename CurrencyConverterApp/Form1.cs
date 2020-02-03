@@ -49,6 +49,12 @@ namespace CurrencyConverterApp
             MessageBox.Show("You have removed saved exchange rates.");
         }
 
+        private void buttonTable_Click(object sender, EventArgs e)
+        {
+            FormTable f = new FormTable();
+            f.Show();
+        }
+
         private void buttonConvert_Click(object sender, EventArgs e)
         {
             date = dateTimePickerFrom.Text;
