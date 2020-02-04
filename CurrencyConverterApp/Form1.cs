@@ -30,6 +30,7 @@ namespace CurrencyConverterApp
             dateTimePickerFrom.MaxDate = DateTime.Today;
         }
 
+        // Button - show saved rates
         private void buttonShowRates_Click(object sender, EventArgs e)
         {
             if (!File.Exists(filePath))
@@ -43,18 +44,22 @@ namespace CurrencyConverterApp
             }
         }
 
+        // Button - delete saved rates
         private void buttonDeleteRates_Click(object sender, EventArgs e)
         {
             File.Delete(filePath);
+
             MessageBox.Show("You have removed saved exchange rates.");
         }
 
+        // Button - show exchange rates table
         private void buttonTable_Click(object sender, EventArgs e)
         {
             FormTable f = new FormTable();
             f.Show();
         }
 
+        // Button - convert
         private void buttonConvert_Click(object sender, EventArgs e)
         {
             date = dateTimePickerFrom.Text;
@@ -96,39 +101,21 @@ namespace CurrencyConverterApp
             labelResult.Text = numericUpDownFrom.Value + " " + currencyNameFrom + " = " + Convert.ToString(rate) + " " + currencyNameTo;
             labelResult.Visible = true;
 
-            addRecord(date, Convert.ToString(amount), currencyNameFrom, Convert.ToString(rate), currencyNameTo, filePath);
+            Record.addRecord(date, Convert.ToString(amount), currencyNameFrom, Convert.ToString(rate), currencyNameTo, filePath);
         }
 
+        // comboBox - currency to
         private void comboBoxTo_SelectedIndexChanged(object sender, EventArgs e)
         {
             currencyNameTo = comboBoxTo.Text;
             pictureBoxTo.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject(comboBoxTo.Text);
         }
 
+        // comboBox - currency from
         private void comboBoxFrom_SelectedIndexChanged(object sender, EventArgs e)
         {
             currencyNameFrom = comboBoxFrom.Text;
             pictureBoxFrom.Image = (Bitmap)Properties.Resources.ResourceManager.GetObject(comboBoxFrom.Text);
-        }
-
-        public static void addRecord(string val1, string val2, string val3, string val4, string val5, string filepath)
-        {
-            try
-            {
-                using (StreamWriter file = new StreamWriter(@filepath, true))
-                {
-                    if (new FileInfo(filepath).Length == 0)
-                    {
-                        file.WriteLine("Date" + ";" + "Amount" + ";" + "From" + ";" + "Rate" + ";" + "To");
-                    }
-
-                    file.WriteLine(val1 + ";" + val2 + ";" + val3 + ";" + val4 + ";" + val5);
-                }
-            }
-            catch (Exception e)
-            {
-                throw new ApplicationException("Error: ", e);
-            }
         }
     }
 }

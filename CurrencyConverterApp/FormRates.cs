@@ -33,7 +33,7 @@ namespace CurrencyConverterApp
             {
                 dataCol = textLine.Split(';');
 
-                if (x == 0)
+                if (x == 0) // Header
                 {
                     for (int i = 0; i <= dataCol.Count() - 1; i++)
                     {
@@ -42,7 +42,7 @@ namespace CurrencyConverterApp
 
                     x = 1;
                 }
-                else
+                else // Content
                 {
                     myDataTable.Rows.Add(dataCol);
                 }

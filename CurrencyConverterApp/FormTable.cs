@@ -23,6 +23,7 @@ namespace CurrencyConverterApp
 
         private void FormTable_Load(object sender, EventArgs e)
         {
+            // PLN
             apiUrl = "https://api.exchangeratesapi.io/latest?base=PLN";
             using (WebClient wc = new WebClient())
             {
@@ -36,6 +37,7 @@ namespace CurrencyConverterApp
                 labelPLNGBP.Text = Convert.ToString(Math.Round(Convert.ToDecimal(data.rates.GBP), 2));
             }
 
+            // EUR
             apiUrl = "https://api.exchangeratesapi.io/latest?base=EUR";
             using (WebClient wc = new WebClient())
             {
@@ -49,6 +51,7 @@ namespace CurrencyConverterApp
                 labelEURGBP.Text = Convert.ToString(Math.Round(Convert.ToDecimal(data.rates.GBP), 2));
             }
 
+            // USD
             apiUrl = "https://api.exchangeratesapi.io/latest?base=USD";
             using (WebClient wc = new WebClient())
             {
@@ -62,6 +65,7 @@ namespace CurrencyConverterApp
                 labelUSDGBP.Text = Convert.ToString(Math.Round(Convert.ToDecimal(data.rates.GBP), 2));
             }
 
+            //CHF
             apiUrl = "https://api.exchangeratesapi.io/latest?base=CHF";
             using (WebClient wc = new WebClient())
             {
@@ -75,6 +79,7 @@ namespace CurrencyConverterApp
                 labelCHFGBP.Text = Convert.ToString(Math.Round(Convert.ToDecimal(data.rates.GBP), 2));
             }
 
+            // GBP and date
             apiUrl = "https://api.exchangeratesapi.io/latest?base=GBP";
             using (WebClient wc = new WebClient())
             {
